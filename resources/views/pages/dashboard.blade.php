@@ -195,7 +195,6 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
-
                     <div class="card mt-sm-5 mt-md-0">
                         <div class="card-header">
                             <h4>Visitors</h4>
@@ -228,9 +227,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Organizers</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row pb-2">
+                                @foreach ($authors as $index => $author)
+                                    <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
+                                        <div class="avatar-item mb-0">
+                                            <img alt="image"
+                                                 src="{{ asset('img/avatar/avatar-' . (($index % 5) + 1) . '.png') }}"
+                                                 class="img-fluid"
+                                                 data-toggle="tooltip"
+                                                 title="{{ $author->firstname }} {{ $author->lastname }}">
+                                            <div
+                                                class="author-name text-center">{{ $author->firstname }} {{ $author->lastname }}</div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-lg-5 col-md-12 col-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Latest Posts</h4>
@@ -268,7 +291,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-12 col-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Latest Posts</h4>
@@ -301,6 +324,81 @@
                                             </td>
                                             <td>
                                                 {{ $tweet->datetweet }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Links</h4>
+                            <div class="card-header-action">
+                                <a href="#" class="btn btn-primary">View All</a>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table-striped mb-0 table">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>HREF</th>
+                                        <th>Page_ID</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($links as $link)
+                                        <tr>
+                                            <td>
+                                                {{ $link->id }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ $link->href }}">{{ $link->href }}</a>
+                                            </td>
+                                            <td>
+                                                {{ $link->page_id }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Pages</h4>
+                            <div class="card-header-action">
+                                <a href="#" class="btn btn-primary">View All</a>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table-striped mb-0 table">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>name</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($pages as $page)
+                                        <tr>
+                                            <td>
+                                                {{ $page->id }}
+                                            </td>
+                                            <td>
+                                                {{ $page->name }}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -349,3 +447,4 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 @endpush
+

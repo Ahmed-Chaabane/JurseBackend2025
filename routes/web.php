@@ -9,6 +9,8 @@ use App\Models\Country;
 use App\Models\Author;
 use App\Models\KeynoteSpeaker;
 use App\Models\Task;
+use App\Models\Link;
+use App\Models\Page;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +35,11 @@ Route::middleware(['auth'])->group(function () {
         $authors = Author::all();
         $keynoteSpeakers = KeynoteSpeaker::all();
         $tasks = task::all();
+        $links = Link::all();
+        $pages = Page::all();
 
 
-        return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks'));
+        return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks', 'links', 'pages'));
     })->name('home');
     Route::resource('user', UserController::class);
     //category
