@@ -78,6 +78,9 @@
                     </div>
                 </div>
             </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- ------------------------- Tasks and Recent Activities part --------------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
@@ -143,8 +146,11 @@
                     </div>
                 </div>
             </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- ----------------- Keynote Speakers and Authors and Organizers part ------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Keynote Speakers</h4>
@@ -168,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Authors</h4>
@@ -192,7 +198,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Organizers</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row pb-2">
+                                @foreach ($organizers as $index => $organizer)
+                                    <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
+                                        <div class="avatar-item mb-0">
+                                            <img alt="image"
+                                                 src="{{ asset('img/avatar/avatar-' . (($index % 5) + 1) . '.png') }}"
+                                                 class="img-fluid"
+                                                 data-toggle="tooltip"
+                                                 title="{{ $organizer->alt }}">
+                                            <div class="author-name text-center">{{ $organizer->alt }}</div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- ------------------------- Visitors country and Sponsors part ------------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="card mt-sm-5 mt-md-0">
@@ -227,77 +259,52 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                    <div class="card">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="card mt-sm-5 mt-md-0">
                         <div class="card-header">
-                            <h4>Organizers</h4>
+                            <h4>Sponsors</h4>
                         </div>
                         <div class="card-body">
-                            <div class="row pb-2">
-                                @foreach ($authors as $index => $author)
-                                    <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
-                                        <div class="avatar-item mb-0">
-                                            <img alt="image"
-                                                 src="{{ asset('img/avatar/avatar-' . (($index % 5) + 1) . '.png') }}"
-                                                 class="img-fluid"
-                                                 data-toggle="tooltip"
-                                                 title="{{ $author->firstname }} {{ $author->lastname }}">
-                                            <div
-                                                class="author-name text-center">{{ $author->firstname }} {{ $author->lastname }}</div>
-                                        </div>
-                                    </div>
+                            <table class="table-striped mb-0 table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>SRC</th>
+                                    <th>ALT</th>
+                                    <th>SPO_ORDER</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($sponsors as $Sponsor)
+                                    <tr>
+                                        <td>
+                                            {{ $Sponsor->id }}
+                                        </td>
+                                        <td>
+                                            {{ $Sponsor->src }}
+                                        </td>
+                                        <td>
+                                            {{ $Sponsor->alt }}
+                                        </td>
+                                        <td>
+                                            {{ $Sponsor->spo_order }}
+                                        </td>
+                                    </tr>
                                 @endforeach
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- -------------------------------- Tweets and post part -------------------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Latest Posts</h4>
-                            <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">View All</a>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table-striped mb-0 table">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Link</th>
-                                        <th>Date</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($tweets as $tweet)
-                                        <tr>
-                                            <td>
-                                                {{ $tweet->id }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ $tweet->link }}">{{ $tweet->link }}</a>
-                                            </td>
-                                            <td>
-                                                {{ $tweet->datetweet }}
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Latest Posts</h4>
-                            <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">View All</a>
-                            </div>
+                            <h4>Tweets</h4>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -320,7 +327,7 @@
                                                 <a href="{{ $tweet->link }}">{{ $tweet->link }}</a>
                                             </td>
                                             <td>
-                                                {{ $tweet->content }}
+                                                {{ $tweet->content}}
                                             </td>
                                             <td>
                                                 {{ $tweet->datetweet }}
@@ -334,14 +341,15 @@
                     </div>
                 </div>
             </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------- Links and Pages part ------------------------------------ -->
+            <!-- -------------------------------------------------------------------------------------- -->
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Links</h4>
-                            <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">View All</a>
-                            </div>
+
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -377,9 +385,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Pages</h4>
-                            <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">View All</a>
-                            </div>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -399,6 +404,93 @@
                                             </td>
                                             <td>
                                                 {{ $page->name }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- ------------------------------- Photos and Videos part ------------------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Photos</h4>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table-striped mb-0 table">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Vpath</th>
+                                        <th>Alt</th>
+                                        <th>Title</th>
+                                        <th>Photo Order</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($photos as $photo)
+                                        <tr>
+                                            <td>
+                                                {{ $photo->id }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ $photo->path }}">{{ $photo->path }}</a>
+                                            </td>
+                                            <td>
+                                                {{ $photo->alt }}
+                                            </td>
+                                            <td>
+                                                {{ $photo->title }}
+                                            </td>
+                                            <td>
+                                                {{ $photo->pho_order }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Videos</h4>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table-striped mb-0 table">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Vpath</th>
+                                        <th>Title</th>
+                                        <th>Video Order</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($videos as $video)
+                                        <tr>
+                                            <td>
+                                                {{ $video->id }}
+                                            </td>
+                                            <td>
+                                                {{ $video->vpath }}
+                                            </td>
+                                            <td>
+                                                {{ $video->title }}
+                                            </td>
+                                            <td>
+                                                {{ $video->vid_order }}
                                             </td>
                                         </tr>
                                     @endforeach

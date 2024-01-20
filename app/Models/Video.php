@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsor extends Model
+class Video extends Model
 {
     use HasFactory;
 
-    protected $table = 'sponsors';
-    protected $fillable = ['src', 'alt', 'spo_order'];
+    protected $table = 'videos';
+    protected $fillable = ['vpath', 'title', 'vid_order'];
 }

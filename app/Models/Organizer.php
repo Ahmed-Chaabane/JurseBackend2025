@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsor extends Model
+class Organizer extends Model
 {
     use HasFactory;
 
-    protected $table = 'sponsors';
-    protected $fillable = ['src', 'alt', 'spo_order'];
+    protected $table = 'organizers';
+    protected $fillable = ['src', 'alt', 'org_order'];
 }

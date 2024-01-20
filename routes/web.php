@@ -11,6 +11,11 @@ use App\Models\KeynoteSpeaker;
 use App\Models\Task;
 use App\Models\Link;
 use App\Models\Page;
+use App\Models\Sponsor;
+use App\Models\Photo;
+use App\Models\Video;
+use App\Models\Organizer;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +42,13 @@ Route::middleware(['auth'])->group(function () {
         $tasks = task::all();
         $links = Link::all();
         $pages = Page::all();
+        $sponsors = Sponsor::all();
+        $photos = Photo::all();
+        $videos = Video::all();
+        $organizers = Organizer::all();
 
 
-        return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks', 'links', 'pages'));
+        return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks', 'links', 'pages', 'sponsors', 'photos', 'videos', 'organizers'));
     })->name('home');
     Route::resource('user', UserController::class);
     //category
