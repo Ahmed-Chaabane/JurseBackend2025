@@ -23,4 +23,8 @@ class Country extends Model
     {
         Schema::dropIfExists('countries');
     }
+    public static function countCountry()
+    {
+        return self::count();
+    }
 }

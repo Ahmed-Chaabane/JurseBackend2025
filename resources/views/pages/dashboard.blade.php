@@ -16,6 +16,9 @@
             <div class="section-header">
                 <h1>Dashboard</h1>
             </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- -------------------------------------  part 1 ---------------------------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
@@ -24,10 +27,10 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Admin</h4>
+                                <h4>Total Users</h4>
                             </div>
                             <div class="card-body">
-                                10
+                                {{ \App\Models\User::countUsers() }}
                             </div>
                         </div>
                     </div>
@@ -35,14 +38,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
-                            <i class="far fa-newspaper"></i>
+                            <i class="fab fa-twitter"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>News</h4>
+                                <h4>Tweets</h4>
                             </div>
                             <div class="card-body">
-                                42
+                                {{ \App\Models\Tweet::countTweets() }}
                             </div>
                         </div>
                     </div>
@@ -50,14 +53,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-warning">
-                            <i class="far fa-file"></i>
+                            <i class="far fa-flag"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Reports</h4>
+                                <h4>Countries Participating</h4>
                             </div>
                             <div class="card-body">
-                                1,201
+                                {{ \App\Models\Country::countCountry() }}
                             </div>
                         </div>
                     </div>
@@ -65,14 +68,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">
-                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-photo-film"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Online Users</h4>
+                                <h4>Photos and Videos</h4>
                             </div>
                             <div class="card-body">
-                                47
+                                {{ \App\Models\Photo::countPhoto() + \App\Models\Video::countVideo() }}
                             </div>
                         </div>
                     </div>
@@ -271,7 +274,7 @@
                                     <th>ID</th>
                                     <th>SRC</th>
                                     <th>ALT</th>
-                                    <th>SPO_ORDER</th>
+                                    <th>SPO ORDER</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -358,7 +361,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>HREF</th>
-                                        <th>Page_ID</th>
+                                        <th>Page ID</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -492,6 +495,44 @@
                                             <td>
                                                 {{ $video->vid_order }}
                                             </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <!-- -------------------------------- Special_sessions part ------------------------------- -->
+            <!-- -------------------------------------------------------------------------------------- -->
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Special Sessions</h4>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table-striped mb-0 table">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Order</th>
+                                        <th>Author ID</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($specialSessions as $specialSession)
+                                        <tr>
+                                            <td>{{ $specialSession->id }}</td>
+                                            <td>{{ $specialSession->title }}</td>
+                                            <td>{{ $specialSession->description }}</td>
+                                            <td>{{ $specialSession->spe_order }}</td>
+                                            <td>{{ $specialSession->author_id }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

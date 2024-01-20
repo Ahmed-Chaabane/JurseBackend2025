@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class SpecialSession extends Model
 {
     use HasFactory;
+
+    protected $table = 'special_sessions';
+    protected $fillable = [
+        'title',
+        'description',
+        'spe_order',
+        'author_id',
+    ];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
 }

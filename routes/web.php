@@ -15,8 +15,8 @@ use App\Models\Sponsor;
 use App\Models\Photo;
 use App\Models\Video;
 use App\Models\Organizer;
-
-
+use App\Models\User;
+use App\Models\SpecialSession;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,9 +46,17 @@ Route::middleware(['auth'])->group(function () {
         $photos = Photo::all();
         $videos = Video::all();
         $organizers = Organizer::all();
+        $specialSessions = SpecialSession::all();
+        $totalUsers = User::count();
+        $totalTweets = Tweet::count();
+        $totalCountry = Country::count();
+        $totalPhoto = Photo::count();
+        $totalVideo = Video::count();
 
 
-        return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks', 'links', 'pages', 'sponsors', 'photos', 'videos', 'organizers'));
+
+        return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks', 'links', 'pages', 'sponsors',
+            'photos', 'videos', 'organizers', 'totalUsers', 'totalTweets', 'totalCountry', 'totalPhoto', 'totalVideo', 'specialSessions'));
     })->name('home');
     Route::resource('user', UserController::class);
     //category

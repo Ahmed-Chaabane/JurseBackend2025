@@ -11,4 +11,8 @@ class Video extends Model
 
     protected $table = 'videos';
     protected $fillable = ['vpath', 'title', 'vid_order'];
+    public static function countVideo()
+    {
+        return self::count();
+    }
 }
