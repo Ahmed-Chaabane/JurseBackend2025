@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activites', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            $table->string('activite', 2000);
-            $table->date('dactivite');
-            $table->date('migration');
+            $table->firstname();
+            $table->lastname();
+            $table->organism();
+            $table->country_id();
+            $table->website();
+            $table->description();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('authors');
     }
 };

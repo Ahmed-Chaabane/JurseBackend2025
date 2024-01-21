@@ -8,8 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'organism',
+        'country_id',
+        'website',
+        'description',
 
-    public function up()
+
+    ];
+    /* public function up()
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->increments('id');
@@ -20,10 +29,10 @@ class Author extends Model
             $table->foreign('country_id')->references('id')->on('countries');
             $table->timestamps();
         });
-    }
-
+    } */
+/*
     public function down()
     {
         Schema::dropIfExists('authors');
-    }
+    } */
 }

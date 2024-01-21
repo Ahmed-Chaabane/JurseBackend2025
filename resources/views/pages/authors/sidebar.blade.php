@@ -46,23 +46,5 @@
 
                 </ul>
             </li>
-            <li class="nav-item dropdown ">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Authors</span></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a class="nav-link" href="{{ route('author.index') }}">All Authors</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li class="nav-item dropdown ">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>organizers</span></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a class="nav-link" href="{{ route('organizers.index') }}">All organizers</a>
-                    </li>
-
-                </ul>
-            </li>
     </aside>
 </div>

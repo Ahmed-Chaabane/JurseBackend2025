@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activites', function (Blueprint $table) {
+        Schema::create('keynote_speakers', function (Blueprint $table) {
             $table->id();
-            $table->string('activite', 2000);
-            $table->date('dactivite');
-            $table->date('migration');
+            $table->firstname();
+            $table->lastname();
+            $table->description();
+            $table->website();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('keynote_speakers');
     }
 };
