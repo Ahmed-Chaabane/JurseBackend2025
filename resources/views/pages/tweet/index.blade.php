@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Product')
+@section('title', 'Tweet')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,14 +11,14 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Products</h1>
+                <h1>Tweets</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('product.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('tweet.create') }}" class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Product</a></div>
-                    <div class="breadcrumb-item">All Product</div>
+                    <div class="breadcrumb-item"><a href="#">Tweets</a></div>
+                    <div class="breadcrumb-item">All Tweets</div>
                 </div>
             </div>
             <div class="section-body">
@@ -27,17 +27,18 @@
                         @include('layouts.alert')
                     </div>
                 </div> --}}
-
-
+                <h2 class="section-title">Tweets</h2>
+                <p class="section-lead">
+                    You can manage all Tasks, such as editing, deleting and more.
+                </p>
 
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
-
+                            <div class="card-header"></div>
                             <div class="card-body">
-
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('product.index') }}">
+                                    <form method="GET" action="{{ route('tweet.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="name">
                                             <div class="input-group-append">
@@ -53,36 +54,28 @@
                                     <table class="table-striped table">
                                         <tr>
 
-                                            <th>Name</th>
-                                            <th>Category</th>
-                                            <th>Price</th>
-                                            <th>Stock</th>
-                                            <th>Created At</th>
+                                            <th>Link</th>
+                                            <th>Content</th>
+                                            <th>Date Tweet</th>
                                             <th>Action</th>
                                         </tr>
-                                        @foreach ($products as $product)
+                                        @foreach ($tweets as $tweet)
                                             <tr>
 
-                                                <td>{{ $product->name }}
-                                                </td>
-                                                <td>{{ $product->category->name }}
-                                                </td>
-                                                <td>{{ $product->price }}
-                                                </td>
-                                                <td>{{ $product->stock }}
-                                                </td>
-
-                                                <td>{{ $product->created_at }}</td>
+                                                <td>{{ $tweet->link }}</td>
+                                                <td>{{ $tweet->content }}</td>
+                                                <td>{{ $tweet->datetweet }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('product.edit', $product->id) }}'
+                                                        <a href='{{ route('tweet.edit', $tweet->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('product.destroy', $product->id) }}"
-                                                            method="POST" class="ml-2">
+                                                        <form action="{{ route('tweet.destroy', $tweet->id) }}" 
+                                                            method="POST"
+                                                            class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />
@@ -99,7 +92,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $products->withQueryString()->links() }}
+                                    {{ $tweets->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

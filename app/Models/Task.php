@@ -8,21 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+
+    protected  $fillable = [
+        'name_task',
+        'assignee',
+        'time_estimate',
+        'status',
+        'user_id',
+    ];
+
+    public function user()
     {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->string('task_name');
-            $table->string('status');
-            $table->string('assignee');
-            $table->string('time_estimate');
-            $table->timestamps();
-        });
+        return $this->belongsTo(User::class);
     }
 
     public function down()

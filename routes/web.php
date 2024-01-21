@@ -42,4 +42,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('category', \App\Http\Controllers\CategoryController::class);
     //product
     Route::resource('product', \App\Http\Controllers\ProductController::class);
+    //task
+    Route::resource('task', \App\Http\Controllers\TaskController::class);
+    //keynotespeaker
+    Route::resource('keynotespeaker', \App\Http\Controllers\KeynotespeakerController::class);
+    //Tweet
+    Route::resource('keynotespeaker', \App\Http\Controllers\KeynotespeakersController::class);
 });

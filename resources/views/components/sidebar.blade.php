@@ -32,7 +32,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Tasks</span></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="nav-link" href="{{ route('category.index') }}">All Tasks</a>
+                        <a class="nav-link" href="{{ route('task.index') }}">All Tasks</a>
                     </li>
 
                 </ul>
@@ -42,6 +42,24 @@
                 <ul class="dropdown-menu">
                     <li>
                         <a class="nav-link" href="{{ route('product.index') }}">All Product</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Keynote Speakers</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('keynotespeaker.index') }}">All Keynote Speakers</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Tweets</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('tweet.index') }}">All Tweets</a>
                     </li>
 
                 </ul>
