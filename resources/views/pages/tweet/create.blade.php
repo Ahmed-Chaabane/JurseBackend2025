@@ -63,7 +63,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Date Tweet</label>
-                                <input type="text" class="form-control" name="datetweet">
+                                <input type="date" class="form-control" name="datetweet">
+                                @error('datetweet')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>

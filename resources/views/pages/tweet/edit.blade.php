@@ -56,11 +56,21 @@
                                         is-invalid
                                         @enderror"
                                     name="content" value="{{ $tweet->content }}">
+                                    @error('content')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Date Tweet</label>
-                                <input type="text" class="form-control" name="description" 
+                                <input type="date" class="form-control" name="datetweet" 
                                     value="{{ $tweet->datetweet }}">
+                                    @error('datetweet')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="card-footer text-right">

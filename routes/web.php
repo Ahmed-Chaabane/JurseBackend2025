@@ -47,5 +47,5 @@ Route::middleware(['auth'])->group(function () {
     //keynotespeaker
     Route::resource('keynotespeaker', \App\Http\Controllers\KeynotespeakerController::class);
     //Tweet
-    Route::resource('keynotespeaker', \App\Http\Controllers\KeynotespeakersController::class);
+    Route::resource('tweet', \App\Http\Controllers\TweetController::class);
 });

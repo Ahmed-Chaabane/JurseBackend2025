@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tweet>
@@ -19,7 +20,7 @@ class TweetFactory extends Factory
         return [
             'link' => fake()->link(),
             'content' => fake()->content(),
-            'datetweet' => fake()->tweet(),
+            'datetweet' => Carbon::now()->subDays(random_int(1, 30)), // Exemple: date aléatoire dans les 30 derniers jours
         ];
     }
 }
