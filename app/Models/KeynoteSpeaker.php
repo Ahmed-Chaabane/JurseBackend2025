@@ -8,22 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class KeynoteSpeaker extends Model
 {
     use HasFactory;
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('keynote_speakers', function (Blueprint $table) {
-            $table->id();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('description');
-            $table->string('website')->nullable();
-            $table->timestamps();
-        });
-    }
+    protected  $fillable = [
+        'firstname',
+        'lastname',
+        'description',
+        'website',
+    ];
 
     /**
      * Reverse the migrations.
