@@ -44,4 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Count the total number of users.
+     *
+     * @return int
+     */
+    public static function countUsers()
+    {
+        return self::count();
+    }
 }

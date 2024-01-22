@@ -9,13 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
-            $table->string('link', 2000);
-            $table->string('content', 2000);
-            $table->date('datetweet');
             $table->timestamps();
         });
     }
@@ -25,7 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tweets');
     }
-
 };

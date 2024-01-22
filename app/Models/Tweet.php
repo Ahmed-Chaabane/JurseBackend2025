@@ -11,4 +11,8 @@ class Tweet extends Model
     protected $fillable = [
         'link', 'content' , 'datetweet',
     ];
+    public static function countTweets()
+    {
+        return self::count();
+    }
 }
