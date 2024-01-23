@@ -11,4 +11,5 @@ class Sponsor extends Model
 
     protected $table = 'sponsors';
     protected $fillable = ['src', 'alt', 'spo_order'];
+    public $timestamps = true;
 }

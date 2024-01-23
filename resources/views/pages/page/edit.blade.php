@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Advanced Forms')
+@section('title', 'Edit Keynote Speaker')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,86 +16,60 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Advanced Forms</h1>
+                <h1>Update Keynote Speaker</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Author</div>
+                    <div class="breadcrumb-item"><a href="#">Keynote Speaker</a></div>
+                    <div class="breadcrumb-item">Update</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Author</h2>
+                <h2 class="section-title">Key note Speakers</h2>
 
 
 
                 <div class="card">
-                    <form action="{{ route('author.store') }}" method="POST">
+                    <form action="{{ route('keynotespeaker.update', $keynotespeaker) }}" 
+                        method="POST">
                         @csrf
-                        <div class="card-header">
-                            <h4>Input Text</h4>
-                        </div>
+                        @method('PUT')
+                        <div class="card-header"></div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>firstname</label>
+                                <label>First Name</label>
                                 <input type="text"
                                     class="form-control @error('firstname')
                                 is-invalid
                             @enderror"
-                                    name="firstname">
-                                @error('firstname')
+                                    name="firstname" value="{{ $keynotespeaker->firstname }}">
+                                    @error('firstname')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>LastName</label>
+                                <label class="form-label">Last Name</label>
                                 <input type="text"
                                     class="form-control @error('lastname')
                                 is-invalid
                             @enderror"
-                                    name="lastname">
-                                @error('lastname')
+                                    name="lastname" value="{{ $keynotespeaker->lastname }}">
+                                    @error('lastname')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>organism</label>
-                                <input type="text"
-                                    class="form-control @error('organism')
-                                is-invalid
-                            @enderror"
-                                    name="organism">
-                                @error('organism')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="description" 
+                                    value="{{ $keynotespeaker->description }}">
                             </div>
                             <div class="form-group">
-                                <label>Country id</label>
-                                <input type="text"
-                                    class="form-control @error('country_id')
-                                is-invalid
-                            @enderror"
-                                    name="country_id">
-                                @error('country_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
-
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="roles" value="USER" class="selectgroup-input">
-                                        <span class="selectgroup-button">author</span>
-                                    </label>
-
-                                </div>
+                                <label>Website</label>
+                                <input type="text" class="form-control" name="website" value="{{ $keynotespeaker->website }}">
                             </div>
                         </div>
                         <div class="card-footer text-right">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'New tweets')
+@section('title', 'New Keynote Speaker')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,46 +16,62 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Add Tweet</h1>
+                <h1>Add Keynote Speaker</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Tweet</a></div>
+                    <div class="breadcrumb-item"><a href="#">Keynote Speaker</a></div>
                     <div class="breadcrumb-item">New</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Tweets</h2>
+                <h2 class="section-title">Keynote Speakers</h2>
+
+
+
                 <div class="card">
-                    <form action="{{ route('tweet.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('keynotespeaker.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Link</label>
+                                <label>First Name</label>
                                 <input type="text"
-                                       class="form-control @error('link')
+                                    class="form-control @error('firstname')
                                 is-invalid
                             @enderror"
-                                       name="link">
-                                @error('link')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    name="firstname">
+                                @error('firstname')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>content</label>
-                                <input type="text" class="form-control" name="content_tweet">
+                                <label class="form-label">Last Name</label>
+                                <input type="text"
+                                    class="form-control @error('lastname')
+                                is-invalid
+                            @enderror"
+                                    name="lastname">
+                                @error('lastname')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label>Date tweet</label>
-                                <input type="date" class="form-control" name="datetweet">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="description">
                             </div>
-                            <div class="card-footer text-right">
-                                <button class="btn btn-primary">Submit</button>
+                            <div class="form-group">
+                                <label>Website</label>
+                                <input type="text" class="form-control" name="website">
                             </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit tweets')
+@section('title', 'Edit Sponsor')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,56 +16,56 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Update Tweets</h1>
+                <h1>Update Sponsor</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Tweets</a></div>
+                    <div class="breadcrumb-item"><a href="#">Sponsors</a></div>
                     <div class="breadcrumb-item">Update</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">tweets</h2>
+                <h2 class="section-title">Sponsors</h2>
 
 
 
                 <div class="card">
-                    <form action="{{ route('tweet.update', $tweet) }}"
-                          method="POST">
+                    <form action="{{ route('sponsor.update', $sponsor) }}"
+                        method="POST">
                         @csrf
                         @method('PUT')
                         <div class="card-header"></div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Link</label>
+                                <label>Src</label>
                                 <input type="text"
-                                       class="form-control @error('link')
+                                    class="form-control @error('src')
                                 is-invalid
                             @enderror"
-                                       name="firstname" value="{{ $tweet->link }}">
-                                @error('link')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    name="src" value="{{ $sponsor->src }}">
+                                    @error('src')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Content</label>
+                                <label class="form-label">Alt</label>
                                 <input type="text"
-                                       class="form-control @error('Content_tweet')
+                                    class="form-control @error('alt')
                                 is-invalid
                             @enderror"
-                                       name="lastname" value="{{ $tweet->content_tweet }}">
-                                @error('content_tweet')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    name="alt" value="{{ $sponsor->alt }}">
+                                    @error('alt')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Date Tweet</label>
-                                <input type="text" class="form-control" name="Datetweet"
-                                       value="{{ $tweet->Datetweet }}">
+                                <label>spo_order</label>
+                                <input type="text" class="form-control" name="spo_order"
+                                    value="{{ $sponsor->spo_order }}">
                             </div>
                         </div>
                         <div class="card-footer text-right">

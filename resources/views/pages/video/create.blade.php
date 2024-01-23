@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'New tweets')
+@section('title', 'New Videos')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,42 +16,42 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Add Tweet</h1>
+                <h1>Add video</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Tweet</a></div>
+                    <div class="breadcrumb-item"><a href="#">Video</a></div>
                     <div class="breadcrumb-item">New</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Tweets</h2>
+                <h2 class="section-title">Videos</h2>
                 <div class="card">
-                    <form action="{{ route('tweet.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('video.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Link</label>
+                                <label>Vpath</label>
                                 <input type="text"
-                                       class="form-control @error('link')
+                                       class="form-control @error('vpath')
                                 is-invalid
                             @enderror"
-                                       name="link">
-                                @error('link')
+                                       name="vpath">
+                                @error('vpath')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>content</label>
-                                <input type="text" class="form-control" name="content_tweet">
+                                <label>title</label>
+                                <input type="text" class="form-control" name="title">
                             </div>
                             <div class="form-group">
-                                <label>Date tweet</label>
-                                <input type="date" class="form-control" name="datetweet">
+                                <label>pho_order</label>
+                                <input type="text" class="form-control" name="vid_order">
                             </div>
                             <div class="card-footer text-right">
                                 <button class="btn btn-primary">Submit</button>

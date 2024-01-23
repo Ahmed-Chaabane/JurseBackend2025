@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
+            $table->link();
+            $table->content_tweet();
+            $table->datetweet();
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tweet')
+@section('title', 'tweet')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,7 +11,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tweets</h1>
+                <h1>tweets</h1>
                 <div class="section-header-button">
                     <a href="{{ route('tweet.create') }}" class="btn btn-primary">Add New</a>
                 </div>
@@ -27,7 +27,7 @@
                         @include('layouts.alert')
                     </div>
                 </div> --}}
-                <h2 class="section-title">Tweets</h2>
+                <h2 class="section-title">tweets</h2>
                 <p class="section-lead">
                     You can manage all Tasks, such as editing, deleting and more.
                 </p>
@@ -53,32 +53,33 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-
+                                            <th>Id</th>
                                             <th>Link</th>
                                             <th>Content</th>
-                                            <th>Date Tweet</th>
+                                            <th>Datetweet</th>
                                             <th>Action</th>
                                         </tr>
                                         @foreach ($tweets as $tweet)
                                             <tr>
 
+                                                <td>{{ $tweet->id }}</td>
                                                 <td>{{ $tweet->link }}</td>
-                                                <td>{{ $tweet->content }}</td>
+                                                <td>{{ $tweet->content_tweet }}</td>
                                                 <td>{{ $tweet->datetweet }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('tweet.edit', $tweet->id) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
+                                                           class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('tweet.destroy', $tweet->id) }}" 
-                                                            method="POST"
-                                                            class="ml-2">
+                                                        <form action="{{ route('tweet.destroy', $tweet->id) }}"
+                                                              method="POST"
+                                                              class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
+                                                                   value="{{ csrf_token() }}" />
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>

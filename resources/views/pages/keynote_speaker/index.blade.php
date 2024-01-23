@@ -11,7 +11,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>KEynote Speakers</h1>
+                <h1>Keynote Speakers</h1>
                 <div class="section-header-button">
                     <a href="{{ route('keynotespeaker.create') }}" class="btn btn-primary">Add New</a>
                 </div>
@@ -75,7 +75,7 @@
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('keynotespeaker.destroy', $keynotespeaker->id) }}" 
+                                                        <form action="{{ route('keynotespeaker.destroy', $keynotespeaker->id) }}"
                                                             method="POST"
                                                             class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />

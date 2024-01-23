@@ -11,11 +11,13 @@ class SpecialSession extends Model
 
     protected $table = 'special_sessions';
     protected $fillable = [
+        'id',
         'title',
         'description',
         'spe_order',
         'author_id',
     ];
+    public $timestamps = true;
 
     public function author()
     {

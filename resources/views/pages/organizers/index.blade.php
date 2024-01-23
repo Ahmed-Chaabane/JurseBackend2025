@@ -28,8 +28,6 @@
                     </div>
                 </div> --}}
 
-
-
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
@@ -52,35 +50,34 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
+                                            <th>id</th>
                                             <th>src</th>
                                             <th>alt</th>
                                             <th>org_order</th>
-
                                             <th>Action</th>
                                         </tr>
                                         @foreach ($organizers as $organizer)
                                             <tr>
 
-                                                <td>{{ $organizer->src }}
-                                                </td>
-
+                                                <td>{{ $organizer->id }}</td>
+                                                <td>{{ $organizer->src }}</td>
                                                 <td>{{ $organizer->alt }}</td>
                                                 <td>{{ $organizer->org_order }}</td>
-
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('organizers.edit', $organizer->id) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
+                                                           class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
                                                         <form action="{{ route('organizers.destroy', $organizer->id) }}"
-                                                            method="POST" class="ml-2">
-                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                              method="POST" class="ml-2">
+                                                            <input type="hidden" name="_method" value="DELETE"/>
                                                             <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                   value="{{ csrf_token() }}"/>
+                                                            <button
+                                                                class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>
                                                         </form>

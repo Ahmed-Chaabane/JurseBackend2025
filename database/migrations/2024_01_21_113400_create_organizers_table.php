@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('organizers', function (Blueprint $table) {
             $table->id();
+            $table->src();
+            $table->alt();
+            $table->org_order();
             $table->timestamps();
         });
     }

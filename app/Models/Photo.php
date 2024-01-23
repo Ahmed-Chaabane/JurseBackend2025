@@ -11,6 +11,7 @@ class Photo extends Model
 
     protected $table = 'photos';
     protected $fillable = ['vpath', 'alt', 'title', 'pho_order'];
+    public $timestamps = true;
     public static function countPhoto()
     {
         return self::count();

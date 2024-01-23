@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit tweets')
+@section('title', 'Edit videos')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,56 +16,60 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Update Tweets</h1>
+                <h1>Update videos</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Tweets</a></div>
+                    <div class="breadcrumb-item"><a href="#">videos</a></div>
                     <div class="breadcrumb-item">Update</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">tweets</h2>
+                <h2 class="section-title">videos</h2>
 
 
 
                 <div class="card">
-                    <form action="{{ route('tweet.update', $tweet) }}"
+                    <form action="{{ route('video.update', $video) }}"
                           method="POST">
                         @csrf
                         @method('PUT')
                         <div class="card-header"></div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Link</label>
+                                <label>First Name</label>
                                 <input type="text"
-                                       class="form-control @error('link')
+                                       class="form-control @error('firstname')
                                 is-invalid
                             @enderror"
-                                       name="firstname" value="{{ $tweet->link }}">
-                                @error('link')
+                                       name="firstname" value="{{ $video->firstname }}">
+                                @error('firstname')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Content</label>
+                                <label class="form-label">Last Name</label>
                                 <input type="text"
-                                       class="form-control @error('Content_tweet')
+                                       class="form-control @error('lastname')
                                 is-invalid
                             @enderror"
-                                       name="lastname" value="{{ $tweet->content_tweet }}">
-                                @error('content_tweet')
+                                       name="lastname" value="{{ $video->lastname }}">
+                                @error('lastname')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Date Tweet</label>
-                                <input type="text" class="form-control" name="Datetweet"
-                                       value="{{ $tweet->Datetweet }}">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="description"
+                                       value="{{ $video->description }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Website</label>
+                                <input type="text" class="form-control" name="website" value="{{ $video->website }}">
                             </div>
                         </div>
                         <div class="card-footer text-right">

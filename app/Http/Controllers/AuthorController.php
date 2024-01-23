@@ -26,9 +26,8 @@ class AuthorController extends Controller
         $author = new Author;
         $author->firstname=$request->firstname;
         $author->lastname=$request->lastname;
-        $author->website=$request->website;
-        $author->description=$request->description;
         $author->organism=$request->organism;
+        $author->country_id=$request->country_id;
         $author->save();
         return redirect()->route('author.index');
     }
