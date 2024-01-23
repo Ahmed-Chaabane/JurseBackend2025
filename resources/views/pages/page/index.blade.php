@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Category')
+@section('title', 'Page')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,14 +11,14 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Categories</h1>
+                <h1>Pages</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('page.create') }}" class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Category</a></div>
-                    <div class="breadcrumb-item">All categories</div>
+                    <div class="breadcrumb-item"><a href="#">Pages</a></div>
+                    <div class="breadcrumb-item">All Pages</div>
                 </div>
             </div>
             <div class="section-body">
@@ -27,17 +27,18 @@
                         @include('layouts.alert')
                     </div>
                 </div> --}}
-
-
+                <h2 class="section-title">Pages</h2>
+                <p class="section-lead">
+                    You can manage all Pages, such as editing, deleting and more.
+                </p>
 
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
-
+                            <div class="card-header"></div>
                             <div class="card-body">
-
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('category.index') }}">
+                                    <form method="GET" action="{{ route('page.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="name">
                                             <div class="input-group-append">
@@ -54,28 +55,23 @@
                                         <tr>
 
                                             <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
-                                        @foreach ($categories as $category)
+                                        @foreach ($pages as $page)
                                             <tr>
 
-                                                <td>{{ $category->name }}
-                                                </td>
-                                                <td>{{ $category->description }}
-                                                </td>
-                                                <td>{{ $category->created_at }}</td>
+                                                <td>{{ $page->name }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('category.edit', $category->id) }}'
+                                                        <a href='{{ route('page.edit', $page->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('category.destroy', $category->id) }}"
-                                                            method="POST" class="ml-2">
+                                                        <form action="{{ route('page.destroy', $page->id) }}" 
+                                                            method="POST"
+                                                            class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />
@@ -92,7 +88,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $categories->withQueryString()->links() }}
+                                    {{ $pages->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

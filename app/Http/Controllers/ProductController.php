@@ -37,4 +37,31 @@ class ProductController extends Controller
 
         return redirect()->route('product.index');
     }
+
+    public function show($id)
+    {
+        return view('pages.dashboard');
+    }
+
+    public function edit($id)
+    {
+        $product = \App\Models\Product::findOrFail($id);
+        $categories = \App\Models\Category::all();
+        return view('pages.product.edit', compact('product','categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $product = \App\Models\Product::findOrFail($id);
+        $product->update($data);
+       return redirect()->route('product.index');
+    }
+
+    public function destroy($id)
+    {
+        $product = \App\Models\Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('product.index');
+    }
 }

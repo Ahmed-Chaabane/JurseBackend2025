@@ -66,17 +66,9 @@ class TaskController extends Controller
     //update
     public function update(Request $request, $id)
     {
-        /*$data = $request->all();
-        $user = \App\Models\User::findOrFail($request->user_id);
-        $task = \App\Models\Task::findOrFail($id);
-        $task->assignee = $user->name;
-        $task->update($data);*/
-
-        // Récupération de l'utilisateur et de la tâche
         $user = \App\Models\User::findOrFail($request->user_id);
         $task = \App\Models\Task::findOrFail($id);
 
-        // Mise à jour manuelle de l'attribut assignee
         $task->assignee = $user->name;
 
         $task->update([
@@ -86,7 +78,6 @@ class TaskController extends Controller
             'status' => $request->status,
         ]);
 
-        
         return redirect()->route('task.index');
 
     }

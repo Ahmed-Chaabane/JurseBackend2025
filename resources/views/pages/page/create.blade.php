@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'New Category')
+@section('title', 'New Page')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,21 +16,21 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Add Categories</h1>
+                <h1>Add Pages</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Category</a></div>
+                    <div class="breadcrumb-item"><a href="#">Page</a></div>
                     <div class="breadcrumb-item">New</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Categories</h2>
+                <h2 class="section-title">Pages</h2>
 
 
 
                 <div class="card">
-                    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('page.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                         </div>
@@ -43,31 +43,6 @@
                             @enderror"
                                     name="name">
                                 @error('name')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input type="text"
-                                    class="form-control @error('description')
-                                is-invalid
-                            @enderror"
-                                    name="description">
-                                @error('description')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Photo Category</label>
-                                <div class="col-sm-9">
-                                    <input type="file" class="form-control" name="image"
-                                        @error('image') is-invalid @enderror>
-                                </div>
-                                @error('image')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

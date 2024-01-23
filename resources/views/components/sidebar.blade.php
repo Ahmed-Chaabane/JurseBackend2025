@@ -38,10 +38,19 @@
                 </ul>
             </li>
             <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('category.index') }}">All Categories</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Product</span></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="nav-link" href="{{ route('product.index') }}">All Product</a>
+                        <a class="nav-link" href="{{ route('product.index') }}">All Products</a>
                     </li>
 
                 </ul>
@@ -61,7 +70,22 @@
                     <li>
                         <a class="nav-link" href="{{ route('tweet.index') }}">All Tweets</a>
                     </li>
-
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Page</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('page.index') }}">All Pages</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Link</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('link.index') }}">All Links</a>
+                    </li>
                 </ul>
             </li>
     </aside>

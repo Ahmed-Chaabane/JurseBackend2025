@@ -16,16 +16,16 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Advanced Forms</h1>
+                <h1>Add Product</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Product</div>
+                    <div class="breadcrumb-item"><a href="#">Product</a></div>
+                    <div class="breadcrumb-item">New</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Product</h2>
+                <h2 class="section-title">Products</h2>
 
 
 
@@ -33,7 +33,6 @@
                     <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
-                            <h4>Input Text</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">

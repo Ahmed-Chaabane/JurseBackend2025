@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         $authors = Author::all();
         $keynoteSpeakers = KeynoteSpeaker::all();
         $tasks = task::all();
+        
 
 
         return view('pages.dashboard', compact('tweets', 'activities', 'countries', 'authors', 'keynoteSpeakers', 'tasks'));
@@ -48,4 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('keynotespeaker', \App\Http\Controllers\KeynotespeakerController::class);
     //Tweet
     Route::resource('tweet', \App\Http\Controllers\TweetController::class);
+    //Page
+    Route::resource('page', \App\Http\Controllers\PageController::class);
+    //Link
+    Route::resource('link', \App\Http\Controllers\LinkController::class);
 });

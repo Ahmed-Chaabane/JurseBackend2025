@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Category')
+@section('title', 'Link')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,14 +11,14 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Categories</h1>
+                <h1>Links</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('link.create') }}" class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Category</a></div>
-                    <div class="breadcrumb-item">All categories</div>
+                    <div class="breadcrumb-item"><a href="#">Link</a></div>
+                    <div class="breadcrumb-item">All Links</div>
                 </div>
             </div>
             <div class="section-body">
@@ -37,7 +37,7 @@
                             <div class="card-body">
 
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('category.index') }}">
+                                    <form method="GET" action="{{ route('link.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="name">
                                             <div class="input-group-append">
@@ -53,28 +53,26 @@
                                     <table class="table-striped table">
                                         <tr>
 
-                                            <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Created At</th>
+                                            <th>Href</th>
+                                            <th>Page</th>
                                             <th>Action</th>
                                         </tr>
-                                        @foreach ($categories as $category)
+                                        @foreach ($links as $link)
                                             <tr>
 
-                                                <td>{{ $category->name }}
+                                                <td>{{ $link->href }}
                                                 </td>
-                                                <td>{{ $category->description }}
+                                                <td>{{ $link->page->name }}
                                                 </td>
-                                                <td>{{ $category->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('category.edit', $category->id) }}'
+                                                        <a href='{{ route('link.edit', $link->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('category.destroy', $category->id) }}"
+                                                        <form action="{{ route('link.destroy', $link->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
@@ -92,7 +90,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $categories->withQueryString()->links() }}
+                                    {{ $links->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>
